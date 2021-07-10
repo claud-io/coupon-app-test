@@ -5,3 +5,6 @@ export const getPlans = (): Promise<Plan[]> =>
   axios.get(
     "https://wnk07eo5oc.execute-api.eu-central-1.amazonaws.com/dev/v1/plans"
   );
+
+export const postUserDetails = (data: any) =>
+  axios.post("https://FAKEAPI.com/api/DATI", data);

@@ -7,6 +7,8 @@ import {
   ArchiveIcon,
 } from "@heroicons/react/outline";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
+import { deviceType } from "react-device-detect";
 
 interface PlanCardProps {
   plan: Plan;
@@ -14,8 +16,16 @@ interface PlanCardProps {
 
 const PlanCard: React.FC<PlanCardProps> = ({ plan }) => {
   const { t } = useTranslation();
+  const history = useHistory();
+
   return (
     <div
+      onClick={() =>
+        history.push({
+          pathname: `/grazie/${plan.id}`,
+          search: `?device=${deviceType}`,
+        })
+      }
       className="cursor-pointer flex flex-col relative w-130 h-64 overflow-hidden rounded-lg shadow-md  
     hover:shadow-xl transition-shadow duration-300 ease-in-out "
     >
